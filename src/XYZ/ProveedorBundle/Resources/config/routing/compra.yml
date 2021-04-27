@@ -1,0 +1,24 @@
+compra_index:
+    path:     /
+    defaults: { _controller: "ProveedorBundle:Compra:index" }
+    methods:  GET
+
+compra_show:
+    path:     /{idcompra}/show
+    defaults: { _controller: "ProveedorBundle:Compra:show" }
+    methods:  GET
+
+compra_new:
+    path:     /new
+    defaults: { _controller: "ProveedorBundle:Compra:new" }
+    methods:  [GET, POST]
+
+compra_edit:
+    path:     /{idcompra}/edit
+    defaults: { _controller: "ProveedorBundle:Compra:edit" }
+    methods:  [GET, POST]
+
+compra_delete:
+    path:     /{idcompra}/delete
+    defaults: { _controller: "ProveedorBundle:Compra:delete" }
+    methods:  DELETE

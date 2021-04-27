@@ -1,0 +1,54 @@
+XYZ\ProveedorBundle\Entity\DetalleCompra:
+    type: entity
+    table: detalle_compra
+    indexes:
+        fk_detalle_compra_producto1_idx:
+            columns:
+                - producto_idproducto
+        fk_detalle_compra_compra1_idx:
+            columns:
+                - compra_idcompra
+    id:
+        iddetalle:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        detallecantidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: detalleCantidad
+        detalletotal:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: detalleTotal
+    manyToOne:
+        compracompra:
+            targetEntity: Compra
+            cascade: [ persist ]
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: detalles
+            joinColumns:
+                compra_idcompra:
+                    referencedColumnName: idcompra
+            orphanRemoval: false
+        productoproducto:
+            targetEntity: Producto
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                producto_idproducto:
+                    referencedColumnName: idproducto
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

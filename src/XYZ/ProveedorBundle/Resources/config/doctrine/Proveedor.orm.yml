@@ -1,0 +1,45 @@
+XYZ\ProveedorBundle\Entity\Proveedor:
+    type: entity
+    table: proveedor
+    uniqueConstraints:
+        proveedorNit_UNIQUE:
+            columns:
+                - proveedorNit
+    id:
+        idproveedor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        proveedornombre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: proveedorNombre
+        proveedornit:
+            type: string
+            nullable: false
+            length: 12
+            options:
+                fixed: false
+            column: proveedorNit
+        proveedortelefono:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proveedorTelefono
+        proveedordireccion:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: proveedorDireccion
+    lifecycleCallbacks: {  }

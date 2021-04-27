@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Compra</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idcompra</th>
+                <td>{{ compra.idcompra }}</td>
+            </tr>
+            <tr>
+                <th>Compranumero</th>
+                <td>{{ compra.compranumero }}</td>
+            </tr>
+            <tr>
+                <th>Comprafecha</th>
+                <td>{% if compra.comprafecha %}{{ compra.comprafecha|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compra_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('compra_edit', { 'idcompra': compra.idcompra }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

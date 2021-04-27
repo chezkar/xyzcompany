@@ -1,0 +1,15 @@
+proveedor_compra:
+        resource: "@ProveedorBundle/Resources/config/routing/compra.yml"
+        prefix:   /compra
+
+proveedor_proveedor:
+        resource: "@ProveedorBundle/Resources/config/routing/proveedor.yml"
+        prefix:   /proveedor
+
+proveedor_producto:
+    resource: "@ProveedorBundle/Resources/config/routing/producto.yml"
+    prefix:   /producto
+
+proveedor_homepage:
+    path:     /
+    defaults: { _controller: ProveedorBundle:Default:index }

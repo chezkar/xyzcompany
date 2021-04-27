@@ -1,0 +1,49 @@
+XYZ\ProveedorBundle\Entity\Compra:
+    type: entity
+    table: compra
+    indexes:
+        fk_compra_proveedor_idx:
+            columns:
+                - proveedor_idproveedor
+    uniqueConstraints:
+        compraNumero_UNIQUE:
+            columns:
+                - compraNumero
+    id:
+        idcompra:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        compranumero:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: compraNumero
+        comprafecha:
+            type: date
+            nullable: false
+            column: compraFecha
+    manyToOne:
+        proveedorproveedor:
+            targetEntity: Proveedor
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                proveedor_idproveedor:
+                    referencedColumnName: idproveedor
+            orphanRemoval: false
+    oneToMany:
+        detalles:
+            targetEntity: DetalleCompra
+            cascade:      [persist]
+            mappedBy:     compracompra
+    lifecycleCallbacks: {  }

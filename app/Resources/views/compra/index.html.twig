@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Compras list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idcompra</th>
+                <th>Compranumero</th>
+                <th>Comprafecha</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compra in compras %}
+            <tr>
+                <td><a href="{{ path('compra_show', { 'idcompra': compra.idcompra }) }}">{{ compra.idcompra }}</a></td>
+                <td>{{ compra.compranumero }}</td>
+                <td>{% if compra.comprafecha %}{{ compra.comprafecha|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('compra_show', { 'idcompra': compra.idcompra }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('compra_edit', { 'idcompra': compra.idcompra }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compra_new') }}">Create a new compra</a>
+        </li>
+    </ul>
+{% endblock %}

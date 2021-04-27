@@ -1,0 +1,48 @@
+XYZ\ProveedorBundle\Entity\Cuenta:
+    type: entity
+    table: cuenta
+    indexes:
+        fk_cuenta_compra1_idx:
+            columns:
+                - compra_idcompra
+    uniqueConstraints:
+        cuentaNumero_UNIQUE:
+            columns:
+                - cuentaNumero
+    id:
+        idcuenta:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        cuentanumero:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: cuentaNumero
+        cuentafechaoperacion:
+            type: date
+            nullable: false
+            column: cuentaFechaOperacion
+        cuentapagada:
+            type: boolean
+            nullable: false
+            column: cuentaPagada
+    manyToOne:
+        compracompra:
+            targetEntity: Compra
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                compra_idcompra:
+                    referencedColumnName: idcompra
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
